@@ -1,0 +1,1 @@
+https://java2blog.com/how-hashmap-works-in-java/
