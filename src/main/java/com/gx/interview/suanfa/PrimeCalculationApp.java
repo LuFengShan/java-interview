@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
  * {@link Executors} : 提供了方便的工厂方法来创建不同类型的执行程序服务.其实就是创建线程池
  * {@link ExecutorService} : 执行线程池的执行器。
  * {@link Executors#newWorkStealingPool()} : 默认是创建主机CPU的可用核心数线程池
+ * {@link ForkJoinPool} : 开启一个新线程（或是重用线程池内的空闲线程），将任务交给该线程处理, 等待该任务的处理线程处理完毕，获得返回值。
  */
 public class PrimeCalculationApp {
     public static void main(String[] args) throws InterruptedException {
