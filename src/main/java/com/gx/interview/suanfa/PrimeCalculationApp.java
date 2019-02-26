@@ -22,7 +22,7 @@ public class PrimeCalculationApp {
         PrimeCalculationThread server4 = new PrimeCalculationThread(7501, 10000);
         List<Callable<Integer>> list = Arrays.asList(server1, server2, server3, server4);
         // 3.批量执行所有的线程
-        List<Integer> collect = executor.invokeAll(list)
+        Integer collect = executor.invokeAll(list)
                 .stream()
                 .map(future -> {
                     Integer sum = 0;
@@ -34,12 +34,8 @@ public class PrimeCalculationApp {
                         e.printStackTrace();
                     }
                     return sum;
-                }).collect(Collectors.toList());
-        int sum = 0;
-        for (Integer i : collect) {
-            sum += i;
-        }
-        System.out.println(sum);
+                }).collect(Collectors.summingInt(Integer::intValue));
+        System.out.println("素数的数量 : " + collect);
     }
 }
 
